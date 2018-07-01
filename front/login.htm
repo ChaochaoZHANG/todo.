@@ -1,0 +1,18 @@
+<div class="narrow-page">
+  <lefamin-errors :errors="errors" style='margin-bottom:1em;'></lefamin-errors>
+  <div>
+    <input ref="email" type="email" v-model.trim="user.data.email" placeholder="请输入Email" />
+    <input type="password" v-model="user.data.pd" placeholder="请输入密码" />
+    <div style="clear:both;"></div>
+    <div>
+      <input id="autoLoginCheckbox" type="checkbox" v-model="user.ui.autoLogin" />
+      <label for="autoLoginCheckbox">在这个设备上自动登陆</label>
+      <div style="clear:both;"></div>
+    </div>
+    <button id='loginButton' @click.prevent="login">登录</button>
+    <div style="clear:both;"></div>
+  </div>
+</div>
+  
+  
+    

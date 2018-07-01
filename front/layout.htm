@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+  <link rel="icon" type="image/x-icon" href="/front/images/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="/front/black.css" />
+  <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+  <script src="https://unpkg.com/js-cookie/src/js.cookie.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="/common/settings.js"></script>
+  <script src="/front/site.js"></script>
+  <title></title>
+</head>
+<body>
+<div id='pageCr'>
+  <lefamin-head :site='site' :ui='ui'></lefamin-head>
+  <div id='pageBodyCr'>
+    <router-view></router-view> 
+  </div>
+  <lefamin-foot :site='site' :ui='ui'></lefamin-foot>
+</div>
+</body>
+</html>

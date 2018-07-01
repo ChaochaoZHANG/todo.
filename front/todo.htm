@@ -1,0 +1,46 @@
+<div>
+  <!--<div class='pageTitleCr'>任务表</div>-->
+
+  <div class="section" id="tasks_activeCr">
+    <div class="section-title" style="cursor:pointer;" @click="showActive=!showActive">待办任务 ( {{active.length}} )</div>
+    <div>
+      <textarea v-model="newTask.data.content" class="inline" @click="focusTask=null"></textarea>
+      <button @click="createTask" style="float:left;">新增</button>
+      <div style="clear:both;"></div>
+    </div>
+    <div v-show="showActive">
+      <div class="task border" v-for="task in active">
+        <div style="width:80%; float:left; ">
+          <div class="contextMenu" v-show="task.ui.showMenu">
+            <button @click="deleteTask(task, active)">删除</button>
+            <button @click="completeTask(task)">已完成</button>
+            <button @click="topTask(task, active)">置顶</button>
+            <div style="clear:both;"></div>
+          </div>
+          <textarea style="width:95%; float:none;" v-model="task.data.content" :class="{inline:true, read:(!task.ui.focus), unsaved:task.ui.unsaved}" @click="focusTask=task"></textarea>
+        </div>
+        <img src="/front/images/edit.png" class="item-edit" @click="task.ui.showMenu=!task.ui.showMenu" />
+        <div style="clear:both;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="tasks_pastCr">
+    <div class="section-title" style="cursor:pointer;" @click="showPast=!showPast">已办任务 ( {{past.length}} )</div>
+    <div v-show="showPast">
+      <div class="task border" v-for="task in past">
+        <div style="width:80%; float:left; ">
+          <div class="contextMenu" v-show="task.ui.showMenu">
+            <button @click="deleteTask(task, past)">删除</button>
+            <button @click="topTask(task, past)">置顶</button>
+            <div style="clear:both;"></div>
+          </div>
+          <textarea style="width:95%; float:none;" v-model="task.data.content" :class="{inline:true, read:(!task.ui.focus), unsaved:task.ui.unsaved}" @click="focusTask=task"></textarea>
+        </div>
+        <img src="/front/images/edit.png" class="item-edit" @click="task.ui.showMenu=!task.ui.showMenu" />
+        <div style="clear:both;"></div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,20 @@
+<div id='pageHeadCr'>
+  <div id='menuEntryCr'>
+    <img id='menuEntryImg' alt='MENU' src='/front/images/enter.png' 
+    @click='ui.showSiteMenu=!ui.showSiteMenu'/>
+  </div>
+  <router-link :key='site.name' to='/' id='siteNameCr' :style="{ marginLeft: siteNameCrMarginLeft }">
+    {{site.name}}
+  </router-link>
+  <router-link key='login' to='/login' id='userCr'>
+    登录/注销
+  </router-link>
+  <div style='clear:both;'></div>
+  <div v-show='ui.showSiteMenu' id='siteMenuCr' :style="{width:siteMenuCrWidth}">
+    <div id="siteMenuCr2">
+      <router-link v-for='menu in site.menu' :key='menu.text' :to='menu.path' @click.native="menuItemClick">
+        {{menu.text}}
+      </router-link>
+    </div>
+  </div>
+</div>
